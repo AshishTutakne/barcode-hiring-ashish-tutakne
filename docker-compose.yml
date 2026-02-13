@@ -1,0 +1,18 @@
+services:
+  db:
+    build:
+      context: .
+      dockerfile: db.Dockerfile
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER:-postgres}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-postgres}"
+      POSTGRES_DB: "${POSTGRES_DB:-barcode_db}"
+    ports:
+      - 127.0.0.1:${POSTGRES_PORT:-5432}:5432
+    restart: unless-stopped
+    stop_grace_period: "3s"
+    volumes:
+      - "db:/var/lib/postgresql/data"
+
+volumes:
+  db: {}
