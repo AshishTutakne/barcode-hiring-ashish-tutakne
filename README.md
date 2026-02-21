@@ -34,7 +34,7 @@ I have provided:
 2. [goose](https://github.com/pressly/goose) for migrations
 3. A starter migration with a simple product table
 
-Fork this repo, share it with me and get to work!
+Mirror this repo (make sure it is private!), share it with me and get to work!
 
 ## The Deliverable
 1. the code
