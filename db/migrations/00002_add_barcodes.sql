@@ -2,7 +2,7 @@
 -- +goose StatementBegin
 
 ALTER TABLE dirac.product 
-ADD COLUMN barcode VARCHAR(100) UNIQUE;
+ADD COLUMN barcode VARCHAR(130) UNIQUE;
 
 -- +goose StatementEnd
 
