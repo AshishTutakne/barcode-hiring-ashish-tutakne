@@ -13,7 +13,7 @@ BEGIN
     -- will strip values from the right, leading to an incorrect (And potentially duplicable)
     -- barcode being uploaded. We never expect the cleaned barcode to be longer than 128 characters.
     IF char_length(p_barcode) > 130 THEN
-        RAISE EXCEPTION 'Please check barcode %s. Even after removing invalid characters, it is too long (Greater than 48 characters).', p_barcode;
+        RAISE EXCEPTION 'Please check barcode %s. It is too long (Greater than 130 characters).', p_barcode;
     END IF;
 
     -- Pad the barcode to 130 characters long and make it upper case for consistency.
