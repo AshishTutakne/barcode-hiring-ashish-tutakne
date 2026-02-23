@@ -34,7 +34,15 @@ BEGIN
     ON CONFLICT (barcode) -- If the barcode already exists, we update the record.
     DO UPDATE SET
         name=EXCLUDED.name,
-        description=EXCLUDED.description,
-        updated_at=CURRENT_TIMESTAMP;
+        description=EXCLUDED.description;
     
-    
+END$$ LANGUAGE plpgsql;
+
+-- +goose StatementEnd
+
+-- +goose Down
+-- +goose StatementBegin
+
+DROP PROCEDURE IF EXISTS dirac.ingest_product(VARCHAR, TEXT, VARCHAR);
+
+-- +goose StatementEnd
