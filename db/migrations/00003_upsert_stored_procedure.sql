@@ -16,8 +16,8 @@ BEGIN
         RAISE EXCEPTION 'Please check barcode %s. It is too long (Greater than 130 characters).', p_barcode;
     END IF;
 
-    -- Pad the barcode to 130 characters long and make it upper case for consistency.
-    v_clean_barcode := LPAD(UPPER(p_barcode), 130, '0');
+    -- Pad the barcode to 130 characters long.
+    v_clean_barcode := LPAD(p_barcode, 130, '0');
 
     -- Given a clean barcode, we now upsert the product.
     INSERT INTO dirac.product(name, description, barcode)
